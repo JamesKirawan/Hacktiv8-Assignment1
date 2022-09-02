@@ -1,4 +1,5 @@
 import * as React from "react";
+import { css } from "../../node_modules/@stitches/react/types/index";
 export default class PastContentCard extends React.Component {
   render() {
     return (
@@ -51,3 +52,5 @@ export default class PastContentCard extends React.Component {
     );
   }
 }
+
+const styles = {};

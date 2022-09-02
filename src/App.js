@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./App.css";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import Content from "./components/Content";
 import About from "./components/About";
