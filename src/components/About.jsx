@@ -1,4 +1,6 @@
 import * as React from "react";
+import { css } from "../style/style";
+import Container from "./Container";
 
 export default class About extends React.Component {
   render() {
@@ -8,9 +10,8 @@ export default class About extends React.Component {
       "Twitter: @JakartaJS and we use the hashtag #jakartajs",
     ];
     return (
-      <div style={{ flexDirection: "column", display: "flex" }}>
-        <div style={{ fontWeight: "bold", marginTop: 12 }}>{title}</div>
-        <div style={{ marginTop: 8, marginLeft: 18, marginRight: 18 }}>
+      <Container title={title}>
+        <div className={styles.contentContainer()}>
           {renderContent.map((item, idx) => (
             <div
               style={{
@@ -21,7 +22,15 @@ export default class About extends React.Component {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     );
   }
 }
+
+const styles = {
+  contentContainer: css({
+    marginTop: 8,
+    marginLeft: 18,
+    marginRight: 18,
+  }),
+};

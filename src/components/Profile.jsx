@@ -2,13 +2,6 @@ import * as React from "react";
 
 class Profile extends React.Component {
   render() {
-    const renderContent = {
-      title: "Hacktiv8 Meetup",
-      location: "Jakarta, Indonesia",
-      members: "1,078",
-      organizers: "Adhy Wiranata",
-      join: "Join Us",
-    };
     return (
       <div
         style={{
@@ -40,10 +33,12 @@ class Profile extends React.Component {
               justifyContent: "space-between",
             }}
           >
-            <div style={{ fontWeight: "bold" }}>{`${renderContent.title}`}</div>
-            <div>{`Location   ${renderContent.location}`}</div>
-            <div>{`Members    ${renderContent.members}`}</div>
-            <div>{`Organizers ${renderContent.organizers}`}</div>
+            <div
+              style={{ fontWeight: "bold" }}
+            >{`${this.props.profile.title}`}</div>
+            <div>{`Location   ${this.props.profile.location}`}</div>
+            <div>{`Members    ${this.props.profile.members}`}</div>
+            <div>{`Organizers ${this.props.profile.organizers}`}</div>
             <div
               style={{
                 paddingLeft: 12,
@@ -62,7 +57,7 @@ class Profile extends React.Component {
                   textAlign: "center",
                 }}
               >
-                {renderContent.join}
+                {this.props.profile.join}
               </div>
             </div>
           </div>

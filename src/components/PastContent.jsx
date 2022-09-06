@@ -1,41 +1,15 @@
 import * as React from "react";
+import { css } from "../style/style";
+import Container from "./Container";
 import PastContentCard from "./PastContentCard";
 
 export default class PastContent extends React.Component {
   render() {
     const title = "Past Meetups";
-    const renderContent = [
-      {
-        date: "27 November 2017",
-        content: "#39 JakartaJS April Meetup with",
-        with: "kumparan",
-        number: "139",
-      },
-      {
-        date: "27 October 2017",
-        content: "#38 JakartaJS April Meetup with",
-        with: "BliBli",
-        number: "113",
-      },
-      {
-        date: "27 September 2017",
-        content: "#37 JakartaJS April Meetup with",
-        with: "Hacktiv8",
-        number: "110",
-      },
-    ];
+    const renderContent = this.props.pastContentCards;
     return (
-      <div style={{ flexDirection: "column", display: "flex" }}>
-        <div style={{ fontWeight: "bold", marginTop: 24 }}>{title}</div>
-        <div
-          style={{
-            marginTop: 8,
-            marginLeft: 18,
-            marginRight: 18,
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
+      <Container title={title}>
+        <div className={styles.contentContainer()}>
           {renderContent.map((item, idx) => (
             <PastContentCard
               item={item}
@@ -43,7 +17,17 @@ export default class PastContent extends React.Component {
             />
           ))}
         </div>
-      </div>
+      </Container>
     );
   }
 }
+
+const styles = {
+  contentContainer: css({
+    marginTop: 8,
+    marginLeft: 18,
+    marginRight: 18,
+    display: "flex",
+    justifyContent: "space-between",
+  }),
+};

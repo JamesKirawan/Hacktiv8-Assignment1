@@ -1,4 +1,6 @@
 import * as React from "react";
+import { css } from "../style/style";
+import Container from "./Container";
 
 class Content extends React.Component {
   render() {
@@ -17,21 +19,11 @@ class Content extends React.Component {
     const best =
       "Best, Hengki, Giovanni, Sofian, Riza, Agung The JakartaJS Organizers";
     return (
-      <div style={{ flexDirection: "column", display: "flex" }}>
-        <div style={{ fontWeight: "bold", marginTop: 12 }}>{title}</div>
-        <div style={{ marginTop: 8, marginLeft: 18, marginRight: 18 }}>
-          <div
-            style={{
-              backgroundColor: "#C4C4C4",
-              padding: 16,
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <div style={{ fontWeight: "bold" }}>{contentTitle}</div>
-            <div style={{ marginTop: 8, fontWeight: "bold", color: "#9E9E9E" }}>
-              {contentDate}
-            </div>
+      <Container title={title}>
+        <div className={styles.contentContainer()}>
+          <div className={styles.cardContainer()}>
+            <div className={styles.boldText()}>{contentTitle}</div>
+            <div className={styles.dateStyle()}>{contentDate}</div>
             <div style={{ marginTop: 8 }}>
               {content.map((item) => (
                 <div>{item} </div>
@@ -43,9 +35,31 @@ class Content extends React.Component {
             <div style={{ marginTop: 24 }}>{best}</div>
           </div>
         </div>
-      </div>
+      </Container>
     );
   }
 }
+
+const styles = {
+  boldText: css({
+    fonWeight: "bold",
+  }),
+  cardContainer: css({
+    backgroundColor: "#C4C4C4",
+    padding: 16,
+    display: "flex",
+    flexDirection: "column",
+  }),
+  contentContainer: css({
+    marginTop: 8,
+    marginLeft: 18,
+    marginRight: 18,
+  }),
+  dateStyle: css({
+    marginTop: 8,
+    fontWeight: "bold",
+    color: "#9E9E9E",
+  }),
+};
 
 export default Content;
